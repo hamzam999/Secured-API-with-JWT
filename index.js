@@ -67,6 +67,10 @@ app.post('/signup', async function (req, res) {
         error: `invalid`,
       })
     }
+  } else {
+    res.status(400).send({
+      error: 'user exists',
+    })
   }
 })
 
@@ -106,10 +110,6 @@ app.post('/login', async function (req, res) {
   }
 })
 
-app.post('/logout', async function (req, res) {
-  res.status(200).send('you are logged out')
-})
-
 app.get('/user', auth, async function (req, res) {
   console.log('user id', req.user)
   const userInfo = await userModel.findOne({ _id: req.user.id })
@@ -118,6 +118,10 @@ app.get('/user', auth, async function (req, res) {
   } else {
     res.status(404).send('user not found')
   }
+})
+
+app.post('/logout', async function (req, res) {
+  res.status(200).send('you are logged out')
 })
 
 app.listen(process.env.PORT, () => {
