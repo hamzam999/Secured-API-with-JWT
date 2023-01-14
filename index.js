@@ -112,7 +112,9 @@ app.post('/login', async function (req, res) {
 
 app.get('/user', auth, async function (req, res) {
   console.log('user id', req.user)
-  const userInfo = await userModel.findOne({ _id: req.user.id })
+  const userInfo = await userModel
+    .findOne({ _id: req.user.id })
+    .select('-password')
   if (userInfo) {
     res.status(200).send(userInfo)
   } else {
