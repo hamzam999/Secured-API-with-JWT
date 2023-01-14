@@ -12,7 +12,7 @@ Login route: when a user tries to login the credentials are verified and a JWT i
 ![image](https://user-images.githubusercontent.com/40526398/212409618-34c53c04-a632-4e71-b848-230c3084cdc9.png)
 
 User route: After logging in a user can view its information by passing the token a header 'x-auth-token'.
-![image](https://user-images.githubusercontent.com/40526398/212411191-f3ec2c06-d0d4-4c3b-ae6e-8b6ab2fb71b1.png)
+![image](https://user-images.githubusercontent.com/40526398/212470111-6d71d746-63d3-4b2c-a3fc-2bfc980dbec5.png)
 
 Logout route: Since JWT cannot be destroyed or expired manually on the server side.
 A message is displayed 'you are logged out'
